@@ -1,0 +1,58 @@
+{
+  "name": "InterfaceJS",
+  "version": "1.0.0",
+  "description": "Implementation of Interfaces on JS",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jkutianski/InterfaceJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkutianski/InterfaceJS.git"
+  },
+  "author": {
+    "name": "Juan Pablo Kutianski",
+    "email": "jkutianski@gmail.com"
+  },
+  "engines": {
+    "node": ">=6.1.17"
+  },
+  "testRun": {
+    "node": ">=14.0.0"
+  },
+  "main": "./build/node/interface.cjs",
+  "browser": "./build/browser/interface.js",
+  "exports": {
+    "node": {
+      "import": "./build/node/interface.mjs",
+      "require": "./build/node/interface.cjs"
+    },
+    "default": "./build/browser/interface.js"
+  },
+  "dependencies": {
+    "esbuild": "^0.8.34"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "karma": "^6.0.3",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^2.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-summary-reporter": "^2.0.0",
+    "mocha": "^7.2.0",
+    "semver": "7.0.0"
+  },
+  "scripts": {
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "node ./testchecks.js && npm link && mocha && npm unlink InterfaceJS",
+    "test:browser": "karma start karma.conf.js",
+    "test:utils": "node ./testchecks.js && mocha -f Utils",
+    "build:node:cjs": "esbuild src/interface.mjs --bundle --format=cjs --platform=node --target=node8,node10,node12,node14 --outdir=build/node --out-extension:.js=.cjs",
+    "build:node:esm": "esbuild src/interface.mjs --bundle --format=esm --platform=node --target=node8,node10,node12,node14 --outdir=build/node --out-extension:.js=.mjs",
+    "build:node": "npm run build:node:cjs && npm run build:node:esm",
+    "build:browser": "esbuild src/interface.mjs --bundle --minify --format=esm --sourcemap --target=chrome58,firefox57,safari11,edge16 --outdir=build/browser",
+    "build": "npm run build:node && npm run build:browser",
+    "prepare": "npm run build"
+  }
+}
