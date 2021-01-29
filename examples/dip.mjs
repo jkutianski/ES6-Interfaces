@@ -1,4 +1,4 @@
-import { Interface } from 'InterfaceJS';
+import { Interface } from 'es6-interfaces';
 
 // Common message interface method
 class IMessage {
