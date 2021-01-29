@@ -5,9 +5,9 @@ This code can be build on NodeJS v6.17.1 and up but you've to use v14.0.0 or hig
 
 The idea of this code is to use for implement [S.O.L.I.D][solid.pdf] in Javascript, specifically the [Interface segregation principle][solid-isp] and [Dependency inversion principle][solid-dip]. Some examples of implementation are provided [here][examples].
 
-##How to use
+## How to use
 
-###How lo load the module
+### How lo load the module
 
 For ES6 `import()` you can use 
 
@@ -27,7 +27,7 @@ or
 const Interface = require('InterfaceJS').Interface;
 ```
 
-###Interface definition
+### Interface definition
 
 ```
 // Interface class
@@ -89,7 +89,7 @@ The interface can be used to type validation, transformation or sustitution.
 
 __**NOTE:** If the method/property of the implementation class is not defined on the interface class, this interface will not publish this method/property. In other words this method will be undefined for this interface__
 
-###Interface implementation
+### Interface implementation
 
 ```
 const container = new Interface(Container, IContainer);
