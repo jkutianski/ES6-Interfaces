@@ -7,6 +7,26 @@ The idea of this code is to use for implement [S.O.L.I.D][solid.pdf] in Javascri
 
 ##How to use
 
+###How lo load the module
+
+For ES6 `import()` you can use 
+
+```
+import { Interface } from 'InterfaceJS';
+```
+
+and with `require()`
+
+```
+const { Interface } = require('InterfaceJS');
+```
+
+or
+
+```
+const Interface = require('InterfaceJS').Interface;
+```
+
 ###Interface definition
 
 ```
