@@ -1,6 +1,6 @@
 {
   "name": "es6-interfaces",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implementation of Interfaces on JS",
   "keywords": [
     "interface",
@@ -53,7 +53,7 @@
   },
   "scripts": {
     "test": "npm run test:node && npm run test:browser",
-    "test:node": "node ./testchecks.js && npm link && mocha && npm unlink InterfaceJS",
+    "test:node": "node ./testchecks.js && npm link && mocha && npm unlink es6-interfaces",
     "test:browser": "karma start karma.conf.js",
     "test:utils": "node ./testchecks.js && mocha -f Utils",
     "build:node:cjs": "esbuild src/interface.mjs --bundle --format=cjs --platform=node --target=node8,node10,node12,node14 --outdir=build/node --out-extension:.js=.cjs",

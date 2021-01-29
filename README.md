@@ -12,19 +12,19 @@ The idea of this code is to use for implement [S.O.L.I.D][solid.pdf] in Javascri
 For ES6 `import()` you can use 
 
 ```
-import { Interface } from 'InterfaceJS';
+import { Interface } from 'es6-interfaces';
 ```
 
 and with `require()`
 
 ```
-const { Interface } = require('InterfaceJS');
+const { Interface } = require('es6-interfaces');
 ```
 
 or
 
 ```
-const Interface = require('InterfaceJS').Interface;
+const Interface = require('es6-interfaces').Interface;
 ```
 
 ### Interface definition

@@ -1,4 +1,4 @@
-import { Interface } from 'InterfaceJS';
+import { Interface } from 'es6-interfaces';
 
 class IPrinter {
   static print(target) {
