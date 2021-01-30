@@ -1,6 +1,6 @@
 {
   "name": "es6-interfaces",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Implementation of Interfaces on JS",
   "keywords": [
     "interface",
@@ -41,21 +41,24 @@
     "esbuild": "^0.8.34"
   },
   "devDependencies": {
+    "c8": "^7.4.0",
     "chai": "^4.2.0",
     "karma": "^6.0.3",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-firefox-launcher": "^2.1.0",
     "karma-mocha": "^2.0.1",
+    "karma-remap-istanbul": "^0.6.0",
     "karma-summary-reporter": "^2.0.0",
+    "karma-coverage": "^2.0.3",
     "mocha": "^7.2.0",
     "semver": "7.0.0"
   },
   "scripts": {
     "test": "npm run test:node && npm run test:browser",
-    "test:node": "node ./testchecks.js && npm link && mocha && npm unlink es6-interfaces",
+    "test:checks": "node ./tests/testchecks.js",
+    "test:node": "npm run test:checks && c8 --check-coverage mocha ./tests/src/node",
     "test:browser": "karma start karma.conf.js",
-    "test:utils": "node ./testchecks.js && mocha -f Utils",
     "build:node:cjs": "esbuild src/interface.mjs --bundle --format=cjs --platform=node --target=node8,node10,node12,node14 --outdir=build/node --out-extension:.js=.cjs",
     "build:node:esm": "esbuild src/interface.mjs --bundle --format=esm --platform=node --target=node8,node10,node12,node14 --outdir=build/node --out-extension:.js=.mjs",
     "build:node": "npm run build:node:cjs && npm run build:node:esm",

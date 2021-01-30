@@ -1,6 +1,4 @@
-import { Interface } from '../../build/browser/interface.js';
-
-describe('Node Import', function() {
+export function CommonTests(assert, Interface) {
 
   describe('Interface', function() {
 
@@ -74,6 +72,24 @@ describe('Node Import', function() {
       assert.equal(ToStrings().num, '0');
       assert.equal(ToStrings().str, '1');
     });
+
+    it('validate undefined', function() {
+      class TestImplementation {
+        num = 0;
+        str = '1';
+      }
+
+      class IUndefined {
+      }
+
+      function ToStrings() {
+        return new Interface(new TestImplementation(), IUndefined);
+      }
+
+      assert.equal(ToStrings().num, undefined);
+      assert.equal(ToStrings().str, undefined);
+    });
+
   });
 
-});
+}

@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 
-import { ArrayUtils, InterfaceUtils } from '../utils.mjs';
+import { ArrayUtils, InterfaceUtils } from '../../../src/utils.mjs';
 
 describe('Utils', function() {
 

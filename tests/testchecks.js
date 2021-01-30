@@ -1,5 +1,5 @@
 const semver = require('semver');
-const package = require('./package.json');
+const package = require('../package.json');
 const minNode = package && package.testRun && package.testRun.node || '8.0.0';
 const curNode = semver.clean(process.version);
 
