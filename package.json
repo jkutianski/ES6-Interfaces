@@ -12,11 +12,11 @@
   ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/jkutianski/InterfaceJS/issues"
+    "url": "https://github.com/jkutianski/ES6-Interfaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jkutianski/InterfaceJS.git"
+    "url": "https://github.com/jkutianski/ES6-Interfaces.git"
   },
   "author": {
     "name": "Juan Pablo Kutianski",
