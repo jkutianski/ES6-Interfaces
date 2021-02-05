@@ -52,7 +52,7 @@ class Container {
 // Interface class
 class IContainer {
   static method(target) {
-    return param => target(String(param);
+    return param => target(String(param));
   }
 }
 ```
@@ -63,7 +63,7 @@ In this portion of code the interface for `method()` is passing an arrow funtion
 // Interface class
 class IContainer {
   static method(target) {
-    return param => String(target(param);
+    return param => String(target(param));
   }
 }
 ```
