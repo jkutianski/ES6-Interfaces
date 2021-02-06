@@ -11,25 +11,25 @@ The idea of this code is to use for implement [S.O.L.I.D][solid.pdf] in Javascri
 
 For ES6 `import()` you can use 
 
-```
+```js
 import { Interface } from 'es6-interfaces';
 ```
 
 and with `require()`
 
-```
+```js
 const { Interface } = require('es6-interfaces');
 ```
 
 or
 
-```
+```js
 const Interface = require('es6-interfaces').Interface;
 ```
 
 ### Interface definition
 
-```
+```js
 // Interface class
 class IContainer {
   static method(target) {
@@ -48,7 +48,7 @@ class Container {
 `IContainer` is the interface definition class. Is very common in OOP using the name of the implementation class prefixed with a capital 'i'.
 `method()` is the interface for the method in the implementation class. The parameter `target` is the function `method()` of the implementation class. In this case the interface is a simple passthru from the interface to the inplementation class.
 
-```
+```js
 // Interface class
 class IContainer {
   static method(target) {
@@ -59,7 +59,7 @@ class IContainer {
 
 In this portion of code the interface for `method()` is passing an arrow funtion instead of the `target` just to adquire the parameter and transform it to string before pass it to the `target` function.
 
-```
+```js
 // Interface class
 class IContainer {
   static method(target) {
@@ -72,7 +72,7 @@ This one is very similar to the previous but instead of change the parameter to 
 
 The same behavior is applied to the properties.
 
-```
+```js
 // Interface class
 class IContainer {
   static value = String;
@@ -91,7 +91,7 @@ __**NOTE:** If the method/property of the implementation class is not defined on
 
 ### Interface implementation
 
-```
+```js
 const container = new Interface(Container, IContainer);
 ```
 
@@ -99,13 +99,13 @@ This interface implements the interface definition class `IContainer` with the i
 
 To understand this the execution will be on this way `container.method() = IContainer.method() -> Container.method()`
 
-```
+```js
 const container = new Interface(Container, [IContainer1, IContainer2]);
 ```
 
 The Interface can use more than one interface class to extend the interface.
 
-```
+```js
 const containerA = new Interface(Container, [IContainer1, IContainer2]);
 
 const containerB = new Interface(Container, [IContainer1, IContainer3]);
