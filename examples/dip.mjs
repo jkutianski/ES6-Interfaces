@@ -16,7 +16,7 @@ class IEmailData {
       return email;
     }
 
-    // Assign new Error() as return for to Error interface
+    // Assign new Error() as return for Error interface
     this.Error = (err) => new Error('Invalid email');
   };
 
@@ -24,7 +24,7 @@ class IEmailData {
   static Content = String;
   static Subject = function(subject) {
     if (subject === null || typeof subject === 'undefined' ) {
-      // Assign new Error() as return for to Error interface
+      // Assign new Error() as return for Error interface
       this.Error = () => new Error('Invalid subject');
       // Pass undefined to Subject
       return;
