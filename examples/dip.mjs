@@ -11,27 +11,52 @@ class IMessage {
 // Email data interface
 class IEmailData {
   // email is the value of ToAddress of the implementation class
-  static ToAddress = (email) => {
+  static ToAddress = function(email) {
     if (email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
       return email;
     }
 
-    return 'Invalid email';
+    // Assign new Error() as return for to Error interface
+    this.Error = (err) => new Error('Invalid email');
   };
 
   // This converts to strings the values of Subject & Content of the implementation class
-  static Subject = String;
   static Content = String;
+  static Subject = function(subject) {
+    if (subject === null || typeof subject === 'undefined' ) {
+      // Assign new Error() as return for to Error interface
+      this.Error = () => new Error('Invalid subject');
+      // Pass undefined to Subject
+      return;
+    }
+
+    // Convert Subject to String
+    return String(subject);
+  };
 }
 
 // Email implementation class
 class EmailClass {
   ToAddress = 'someone@somewhere.net';
-  Subject = 'Eeeeeeeeeeeeeeeeeeeeeeeeee!';
+  // Subject = 'Eeeeeeeeeeeeeeeeeeeeeeeeee!';
   Content = 'Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...';
 
   SendMessage() {
+    // Check error
+    this.Error = true;
+
+    if (this.Error) {
+      throw this.Error;
+    }
+
     console.log('\nEmail:\tto: %s, subject: %s, body: %s', this.ToAddress, this.Subject, this.Content);
+  }
+
+  set Error(err) {
+    // Only set error if this.Error = true
+    return err &&
+      // Define the variables to test (this not to be read as logic operators, just force getters to run)
+      this.ToAddress && this.Subject && this.Content;
   }
 }
 
@@ -67,8 +92,8 @@ export function SMS() {
   return new Interface(new SMSClass(), [IMessage, ISMSData]);
 }
 
-class Notification {#
-  messages;
+class Notification {
+  #messages;
 
   setTransport(...messages) {
     this.#messages = messages;
