@@ -7,7 +7,7 @@ The idea of this code is to use for implement [S.O.L.I.D][solid.pdf] in Javascri
 
 ## How to use
 
-### How lo load the module
+### How to load the module
 
 For ES6 `import()` you can use 
 
