@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 import { Interface } from 'es6-interfaces';
 
 class IPrinter {

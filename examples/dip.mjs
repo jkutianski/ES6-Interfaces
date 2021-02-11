@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 import { Interface } from 'es6-interfaces';
 
 // Common message interface method
@@ -16,17 +18,13 @@ class IEmailData {
       return email;
     }
 
-    // Assign new Error() as return for Error interface
-    this.Error = (err) => new Error('Invalid email');
+    return;
   };
 
   // This converts to strings the values of Subject & Content of the implementation class
   static Content = String;
   static Subject = function(subject) {
     if (subject === null || typeof subject === 'undefined' ) {
-      // Assign new Error() as return for Error interface
-      this.Error = () => new Error('Invalid subject');
-      // Pass undefined to Subject
       return;
     }
 
@@ -42,21 +40,7 @@ class EmailClass {
   Content = 'Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...';
 
   SendMessage() {
-    // Check error
-    this.Error = true;
-
-    if (this.Error) {
-      throw this.Error;
-    }
-
     console.log('\nEmail:\tto: %s, subject: %s, body: %s', this.ToAddress, this.Subject, this.Content);
-  }
-
-  set Error(err) {
-    // Only set error if this.Error = true
-    return err &&
-      // Define the variables to test (this not to be read as logic operators, just force getters to run)
-      this.ToAddress && this.Subject && this.Content;
   }
 }
 
