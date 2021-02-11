@@ -2,7 +2,7 @@
 var ArrayUtils = class {
   static arrayFy(variable) {
     if (!Array.isArray(variable)) {
-      return variable = Array(variable);
+      variable = Array(variable);
     }
     return variable;
   }
@@ -24,7 +24,7 @@ var InterfaceUtils = class {
     return !fnDefaultMethods.includes(methodName);
   }
   static assignFnMethodFromFn(target, source, methodName) {
-    return target[methodName] = source[methodName];
+    Object.defineProperty(target, methodName, Object.getOwnPropertyDescriptor(source, methodName));
   }
   static extendsFnMethodsByFn(target, source) {
     return InterfaceUtils.getMethods(source).filter(InterfaceUtils.isNotDefaultMethod).map((methodName) => InterfaceUtils.assignFnMethodFromFn(target, source, methodName));
