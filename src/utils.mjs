@@ -1,7 +1,7 @@
 export class ArrayUtils {
   static arrayFy(variable) {
     if (!Array.isArray(variable)) {
-      return variable = Array(variable);
+      variable = Array(variable);
     }
 
     return variable;
@@ -32,7 +32,7 @@ export class InterfaceUtils {
   }
 
   static assignFnMethodFromFn(target, source, methodName) {
-    return target[methodName] = source[methodName];
+    Object.defineProperty(target, methodName, Object.getOwnPropertyDescriptor(source, methodName));
   }
 
   static extendsFnMethodsByFn(target, source) {
