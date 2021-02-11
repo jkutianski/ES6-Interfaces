@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 module.exports = function(config) {
   config.set({
     frameworks: ["mocha", "chai"],
@@ -54,4 +56,4 @@ module.exports = function(config) {
     autoWatch: false,
     concurrency: Infinity
   });
-}
+};
