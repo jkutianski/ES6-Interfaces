@@ -3,7 +3,7 @@ import { InterfaceUtils } from './utils.mjs';
 // Proxy Wrapper to allow extends from Class
 const ProxyWrapper = function(T, I) {
   return new Proxy(T, I);
-}
+};
 
 export class Interface extends ProxyWrapper {
 
