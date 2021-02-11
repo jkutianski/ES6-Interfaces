@@ -1,3 +1,5 @@
+/* global require, process, console */
+
 const semver = require('semver');
 const package = require('../package.json');
 const minNode = package && package.testRun && package.testRun.node || '8.0.0';

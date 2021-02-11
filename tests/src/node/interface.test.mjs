@@ -1,3 +1,5 @@
+/* global describe */
+
 import * as assert from 'assert';
 
 import { Interface } from '../../../src/interface.mjs';

@@ -1,3 +1,5 @@
+/* global describe, it */
+
 import * as assert from 'assert';
 
 import { ArrayUtils, InterfaceUtils } from '../../../src/utils.mjs';
@@ -57,7 +59,10 @@ describe('Utils', function() {
 
       InterfaceUtils.assignFnMethodFromFn(Test, ClassWithMethod, 'method');
 
-      assert.ok(Test.method);
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod, 'method')
+      );
 
     });
 
@@ -75,8 +80,15 @@ describe('Utils', function() {
 
       InterfaceUtils.extendsFnMethodsByFn(Test, ClassWithMethod);
 
-      assert.ok(Test.method1);
-      assert.ok(Test.method2);
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method1'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod, 'method1')
+      );
+
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method2'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod, 'method2')
+      );
 
     });
 
@@ -97,8 +109,15 @@ describe('Utils', function() {
 
       InterfaceUtils.assignFlatMethods(Test, [ClassWithMethod1, ClassWithMethod2]);
 
-      assert.ok(Test.method1);
-      assert.ok(Test.method2);
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method1'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod1, 'method1')
+      );
+
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method2'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod2, 'method2')
+      );
 
     });
 
@@ -114,8 +133,15 @@ describe('Utils', function() {
 
       const Test = InterfaceUtils.extendInterfaces([ClassWithMethod1, ClassWithMethod2]);
 
-      assert.ok(Test.method1);
-      assert.ok(Test.method2);
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method1'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod1, 'method1')
+      );
+
+      assert.deepStrictEqual(
+        Object.getOwnPropertyDescriptor(Test, 'method2'),
+        Object.getOwnPropertyDescriptor(ClassWithMethod2, 'method2')
+      );
 
     });
 

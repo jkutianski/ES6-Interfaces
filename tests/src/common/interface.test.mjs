@@ -1,9 +1,21 @@
+/* global describe, it */
+
 export function CommonTests(assert, Interface) {
 
   describe('Interface', function() {
 
     it('is a Function', function() {
       assert.ok(Interface instanceof Function);
+    });
+
+    it('result instance of implementation', function() {
+      class TestImplementation {}
+
+      function ResultFn() {
+        return new Interface(new TestImplementation(), class {});
+      }
+
+      assert.ok(new ResultFn() instanceof TestImplementation);
     });
 
     it('validate methods', function() {
@@ -14,10 +26,10 @@ export function CommonTests(assert, Interface) {
       }
 
       class IReplaceParam {
-        static isOK(target) {
-          return function(param) {
+        static isOK() {
+          return function() {
             return 'test';
-          }
+          };
         }
       }
 

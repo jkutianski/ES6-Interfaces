@@ -1,3 +1,5 @@
+/* global assert, describe */
+
 import { Interface } from '../../../build/browser/interface.js';
 
 import { CommonTests } from '../common/interface.test.mjs';
