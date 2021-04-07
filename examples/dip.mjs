@@ -35,8 +35,8 @@ class IEmailData {
 
 // Email implementation class
 class EmailClass {
-  ToAddress = 'someone@somewhere.net';
-  // Subject = 'Eeeeeeeeeeeeeeeeeeeeeeeeee!';
+  ToAddress = 'diego@somewhere.net';
+  Subject = 'Eeeeeeeeeeeeeeeeeeeeeeeeee!';
   Content = 'Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee...';
 
   SendMessage() {
