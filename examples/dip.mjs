@@ -77,20 +77,20 @@ export function SMS() {
 }
 
 class Notification {
-  #messages;
+  #transports;
 
-  setTransport(...messages) {
-    this.#messages = messages;
+  setTransports(...transports) {
+    this.#transports = transports;
   }
 
   send() {
-    this.#messages.forEach(message => message.SendMessage());
+    this.#transports.forEach(transport => transport.SendMessage());
   }
 }
 
 // instance of the Notification class
 const notify = new Notification();
 // set the transports interfaces
-notify.setTransport(new Email(), new SMS());
+notify.setTransports(new Email(), new SMS());
 // send the messages via transports
 notify.send();
